@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Movie Recommendation</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+<h3>You Asked:</h3>
+<div>{{ ask }}</div>
+
+<h3>Recommended Movie:</h3>
+<div>{{ content1 }}</div>
+<div>{{ content2 }}</div>
+<div>{{ content3 }}</div>
+
+
+<div id='button'>
+	  <form action="/thanks" method="post">
+	    <input type=submit value='Thanks' name='feedback_button'>
+        <input type=hidden value='{{ ask }}' name='ask'>
+		<input type=hidden value='{{ content1 }}' name='movie1'>
+        <input type=hidden value='{{ content2 }}' name='movie2'>
+        <input type=hidden value='{{ content3 }}' name='movie3'>
+        <input type=hidden value='{{ rating }}' name='rating'>
+	  </form>
+</div>
+
+<div id='button'>
+	  <form action="/">
+	    <input type=submit value='Submit another review'>
+	  </form>
+</div>
+
+  </body>
+</html>
